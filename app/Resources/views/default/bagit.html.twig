@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Bag It Validation</h2>
+			<form>
+				<label>Folder URL</label>
+				<input type="text" name="bagiturl" class="form-control" id="bagiturl">
+				<br>
+				<div class="row">
+					<div class="col-md-6">
+						<button type="button" id="btn-validate" class="btn btn-primary btn-block">Check Valid</button>
+					</div>
+					<div class="col-md-6">
+						<button type="button" id="btn-update" class="btn btn-primary btn-block" disabled>Update</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12" id="message"><div></div></div>
+	</div>
+</div>
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" src="{{asset('assets/custom/js/bagitchecker.js')}}"></script>
+{% endblock %}
