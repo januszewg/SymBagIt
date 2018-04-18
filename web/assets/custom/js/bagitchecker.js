@@ -13,7 +13,7 @@ $(document).ready(function(){
 				$.post(url,data,function(response){
 					$("#btn-update").attr("disabled","disabled");
 					$('#message div').html('');
-					if(response.files.length > 0){
+					if(response.files && response.files.length > 0){
 						var fileslength = '';
 						var wording = '';
 						if (response.files.length == 1) {
@@ -29,7 +29,7 @@ $(document).ready(function(){
 						}
 						$("#btn-update").removeAttr("disabled");
 					}else{
-						$('#message div').hide().html('<p class="alert alert-success">This folder does not required updated</p>').slideDown(500);
+						$('#message div').hide().html('<p class="alert alert-success">This folder does not required updating.</p>').slideDown(500);
 					}
 				},'json');
 			}
@@ -50,6 +50,9 @@ $(document).ready(function(){
 					if(response.flag == true){
 						$('#message div').hide().html('<p class="alert alert-success">Folder Updated with required files</p>').slideDown(500);
 					}
+					else {
+            $('#message div').hide().html('<p class="alert alert-fail">No no no! Failed apocalyptically.</p>').slideDown(500);
+          }
 				},'json');
 			}
 		});
